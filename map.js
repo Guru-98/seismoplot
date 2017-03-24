@@ -1,5 +1,6 @@
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {center: {lat: 20.5937, lng: 78.9629}, zoom: 4});
+  var options = {center: {lat: 20.5937, lng: 78.9629}, zoom: 4, disableDefaultUI: true, zoomControl: true};
+  var map = new google.maps.Map(document.getElementById('map'), options);
 
   var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(6, 65), new google.maps.LatLng(35.956, 97.35));
 
