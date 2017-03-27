@@ -27,14 +27,26 @@
             <li><a href="#">DYFI!</a></li> 
             <li><a href="#">Data Sets</a></li> 
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
         </div>
       </div>
     </nav>
-    <div id="map" class="container-fluid"></div>
+    <div class="container-fluid">
+    <div class="search-bar">Search bar</div>
+    </div>
+    <div class="container-fluid" style="height: 100%">
+      <div class="row-fluid" style="height: 100%">
+        <div id="map" class="col-md-9"></div>
+          <div class="sidebar col-md-3 recent-eq">
+              <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>               
+                <li>Item 3</li>               
+                <li>Item 4</li>               
+                <li>Item 5</li>               
+              </ul>
+          </div>
+        </div>
+    </div>
     <script src="map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA1dpX2riHQBn-gyHA0_jp8grrej8zjZI&callback=initMap" async defer></script>
   </body>

@@ -10,3 +10,18 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.recent-eq{
+    background-color: mediumspringgreen;
+}
+
+.search-bar{
+    background-color: lightslategrey;
+}
+
+@media screen and (min-width: 1024px){
+  .recent-eq{
+    height:100%;
+    background-color: mediumspringgreen;
+    }
+}
