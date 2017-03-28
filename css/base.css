@@ -12,16 +12,20 @@ html, body {
 }
 
 #recent-eq{
-    background-color: mediumspringgreen;
+    background-color: lightseagreen;
+    overflow-y: scroll;
 }
 
 .search-bar{
-    background-color: lightslategrey;
+    background-color: tomato;
 }
 
 @media screen and (min-width: 1024px){
-  .recent-eq{
+  #recent-eq{
     height:100%;
-    background-color: mediumspringgreen;
+    overflow-y: scroll;
+    background-color: lightseagreen;
+    padding-right: 0px;
+    padding-left: 10px;
     }
 }
