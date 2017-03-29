@@ -36,37 +36,44 @@ function initMap() {
 //TODO redefine restriction
 function restrict(){
   if (bounds.equals(map.getBounds())) return;
-
-  // var c=map.getBounds(),
-  // x=c.lng(),
-  // y=c.lat(),
-  // maxX = bounds.getNorthEast().lng(),
-  // maxY = bounds.getNorthEast().lat(),
-  // minX = bounds.getSouthWest().lng(),
-  // minY = bounds.getSouthWest().lat();
-
-  // if(x<minX) x=minX;
-  // if(x>maxX) x=maxX;
-  // if(y<minY) y=minY;
-  // if(y>maxY) y=maxY;
-
   map.fitBounds(bounds); 
 }
 
 function recentEq(response){
-  var eq, i, title;
   var rEqList = document.getElementById('recent-eq');
   rEqList = rEqList.appendChild(document.createElement("ul"));
   rEqList.className += "list-group";
-  for ( i in response.features){
-    eq = document.createElement("li");
-    title = document.createTextNode(response.features[i].properties.title);
-    eq.appendChild(title);
+  for (var i in response.features){
+    var eq = document.createElement("li");
     eq.className += "list-group-item";
+    var eqEvent = document.createElement("button");
+    eqEvent.className +="list-group-item list-group-item-action";
+    eqEvent.setAttribute("onclick","loadEqEvent(\"" + response.features[i].properties.detail + "\")");
+    var title = document.createTextNode(response.features[i].properties.title);
+    eqEvent.appendChild(title);
+    eq.appendChild(eqEvent);
     rEqList.appendChild(eq);
   }
 }
 
-function loadPoints(points) {
-  var data = google.data.Data({map});
+function loadEqEvent(url) {
+  var script = document.createElement('script');
+  script.src = url+"&callback=loadPoint";
+  document.body.appendChild(script);
+}
+
+function loadPoint(response) {
+  var iW;
+  map.data.forEach(function (f) {
+    map.data.remove(f);
+  });
+  map.data.addGeoJson(response);
+  map.data.addListener("mouseover",function (event) {
+    var mag = event.feature.getProperty("mag").toString();
+    iW = new google.maps.InfoWindow({content: mag, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
+    iW.open(map);
+  });
+  map.data.addListener("mouseout",function (event) {
+    iW.close();
+  })
 }
