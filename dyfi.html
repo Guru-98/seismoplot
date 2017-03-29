@@ -1,26 +1,33 @@
 <html>
 <body style="background-color:powderblue;">
 
-	<h1 style="font-family:Calibri;font-size:300%;text-align:center;">
-	DID YOU FEEL IT !	</h1>
-	<p style="font-family:Calibri;font-size:100%;text-align:center;">Your response is our need</p>
+	            <h1 style="font-family:Calibri;font-size:300%;text-align:center;">
+	                DID YOU FEEL IT !	
+                </h1>
+	            <p style="font-family:Calibri;font-size:100%;text-align:center;">
+                    Your response is our need
+                </p>
 
 <form action="/dyfi.php" method="get">
 	<fieldset>
-	<legend> SEISMO PLOT </legend>
+	    <legend style="font-family:Calibri;"> FELT THE QUAKE - REPORT US ! </legend>
 	
-	
-<p style="font-family:Calibri; font-size:100%;text-align:center;">
-	IF YOU CAN'T FIND THE AFFECTED REGION, do choose the location over map <br>
-	<br>
-  	<input type="button" value="Choose Location">
-</p>
-	<br>
-<p style="font-family:Calibri; font-size:150%;">
+	         <p style="font-family:Calibri;text-align:right;"> 
+         <br>Click on Home to go to Home Page - SEISMO PLOT<br>  
+         <a href="https://github.com/Sesimoplot/Sesimoplot">Home</a></p><br>
+
+             <p style="font-family:Calibri; font-size:100%;text-align:center;">      
+                IF YOU CAN'T FIND THE AFFECTED REGION, do choose the location over map <br>
+	            <br><input type="button" value="Choose Location">
+            </p>
+	        <br>
+            <p style="font-family:Calibri; font-size:150%;">
+
 	<br>1. Did you feel the earthquake ?<br>
 	<input type="radio" name="feel" value="Yes">Yes<br>	
 	<input type="radio" name="feel" value="No">No<br>
 	<input type="radio" name="feel" value="Not Sure">Not Sure<br>	
+
 	<br>2.Where were you engaged during the Quake ?<br>
 	<input type="radio" name="spot" value="not sure">Not Specified<br>
 	<input type="radio" name="spot" value="Inside">Inside a Building<br>
@@ -57,10 +64,13 @@
 	<input type="radio" name="enquiry" value="no one">No one felt ! itseems<br>
 	<input type="radio" name="enquiry" value="few">Almost none, but few felt the quake<br>
 	<input type="radio" name="enquiry" value="everyone">Everyone do felt the quake<br>
-</p>
+    
+        </p>
 <p style="text-align:center;font-family:Calibri;">
 	<br> Click submit to submit your responses<br>
-	<br><input type="submit" value="Submit">
+	<br><input type="submit" value="Submit"><br>
+    <br>Click on Reset to reset your responses<br>
+    <br><input type="reset" value="Reset">
 </p>
 	</fieldset>
 </form>
