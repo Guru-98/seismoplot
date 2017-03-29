@@ -14,58 +14,73 @@
 	
 	         <p style="font-family:Calibri;text-align:right;"> 
          <br>Click on Home to go to Home Page - SEISMO PLOT<br>  
-         <a href="https://github.com/Sesimoplot/Sesimoplot">Home</a></p><br>
+         <a href="https://sesimoplot.github.io/Sesimoplot">Home</a></p><br>
 
              <p style="font-family:Calibri; font-size:100%;text-align:center;">      
                 IF YOU CAN'T FIND THE AFFECTED REGION, do choose the location over map <br>
 	            <br><input type="button" value="Choose Location">
             </p>
 	        <br>
-            <p style="font-family:Calibri; font-size:150%;">
+            
 
-	<br>1. Did you feel the earthquake ?<br>
-	<input type="radio" name="feel" value="Yes">Yes<br>	
-	<input type="radio" name="feel" value="No">No<br>
-	<input type="radio" name="feel" value="Not Sure">Not Sure<br>	
+                <br><tagname style="font-size:150%;font-family:Calibri;">1. Did you feel the earthquake ? </tagname><br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <input type="radio" name="q1" value="Yes">Yes<br>	
+                        <br><input type="radio" name="q1" value="No">No<br>
+                        <br><input type="radio" name="q1" value="Not Sure">Not Sure<br>	
+                    </tagname></ul>
 
-	<br>2.Where were you engaged during the Quake ?<br>
-	<input type="radio" name="spot" value="not sure">Not Specified<br>
-	<input type="radio" name="spot" value="Inside">Inside a Building<br>
-	<input type="radio" name="spot" value="on roads">On roads<br>
-	<input type="radio" name="spot" value="stopped vechile">In stopped Vechile<br>
-	<input type="radio" name="spot" value="moving vechile">In mocing vechile<br>
-	<input type="radio" name="spot" value="others">Others<br>
+                <br><tagname style="font-size:150%;font-family:Calibri;">2.Where were you engaged during the Quake ? </tagname><br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <br><input type="radio" name="q2" value="not sure">Not Specified<br>
+                        <br><input type="radio" name="q2" value="Inside">Inside a Building<br>
+                        <br><input type="radio" name="q2" value="on roads">On roads<br>
+                        <br><input type="radio" name="q2" value="stopped vechile">In stopped Vechile<br>
+                        <br><input type="radio" name="q2" value="moving vechile">In moving vechile<br>
+                        <br><input type="radio" name="q2" value="others">Others<br>
+                        <br><input type="text" name="q2-others" class="q2-others" placeholder="Please Describe"> 
+                    </tagname></ul>
 
-	<br>3.What was your reaction ?</br>
-	<input type="radio" name="reaction" value="no action">No Action<br>
-	<input type="radio" name="reaction" value="ran out">Ran Outside<br>
-	<input type="radio" name="reaction" value="dropped & covered">Dropped myself & covered<br>
-	<input type="radio" name="reaction" value="others">Others<br>
+                <br><tagname style="font-size:150%;font-family:Calibri;">3.What was your reaction ?</tagname></br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <br><input type="radio" name="q3" value="no action">No Action<br>
+                        <br><input type="radio" name="q3" value="ran out">Ran Outside<br>
+                        <br><input type="radio" name="q3" value="dropped & covered">Dropped myself & covered<br>
+                        <br><input type="radio" name="q3" value="others">Others<br>
+                    </tagname></ul>
 
-	<br>4. How were the objects (hanging & hevay ojects)?<br>
-	<input type="radio" name="objects" value="didn't even move">Didnt even move a little bit<br>
-	<input type="radio" name="objects" value="slight move">Noticed a slight Shaking<br>
-	<input type="radio" name="objects" value="hevay objects were still">Heavy ojects didnt fall<br>
-	<input type="radio" name="objects" value="all damaged">Breakage of objects due to shaking<br>
+                <br><tagname style="font-size:150%;font-family:Calibri;">4. How were the objects (hanging & hevay ojects)?</tagname><br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <br><input type="radio" name="q4" value="didn't even move">Didnt even move a little bit<br>
+                        <br><input type="radio" name="q4" value="slight move">Noticed a slight Shaking<br>
+                        <br><input type="radio" name="q4" value="hevay objects were still">Heavy ojects didnt fall<br>
+                        <br><input type="radio" name="q4" value="all damaged">Breakage of objects due to shaking<br>
+                    </tagname></ul>
 
-	<br>5. Felt any shaking noise or any other noise ?<br>
-	<input type="radio" name="noises" value="Not specified">Not Specifed<br>
-	<input type="radio" name="noises" value="yeah, slight">Yeah, Slight Noise<br>
-	<input type="radio" name="noises" value="visible cracks">Saw some cracks on the buildings<br>
-	<input type="radio" name="noises" value="major crack">Traces of major cracks<br>
-	
-	<br>6. Walls and structers knocks down ?<br>
-	<input type="radio" name="walls" value="Not specified">Not specified<br>
-	<input type="radio" name="walls" value="no movement">No, didnt even move<br>
-	<input type="radio" name="walls" value="slight shake">Yeah, noted a slight tremble of the walls<br>
-	<input type="radio" name="walls" value="yes">yeah, walls fell down<br>
+                <br><tagname style="font-size:150%;font-family:Calibri;">5. Felt any shaking noise or any other noise ?</tagname><br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <br><input type="radio" name="q5" value="Not specified">Not Specifed<br>
+                        <br><input type="radio" name="q5" value="yeah, slight">Yeah, Slight Noise<br>
+                        <br><input type="radio" name="q5" value="visible cracks">Saw some cracks on the buildings<br>
+                        <br><input type="radio" name="q5" value="major crack">Traces of major cracks<br>
+                    </tagname></ul>
 
-	<br>7. Enquired about the quake with anyone ? How do they respond ??<br>
-	<input type="radio" name="enquiry" value="no one">No one felt ! itseems<br>
-	<input type="radio" name="enquiry" value="few">Almost none, but few felt the quake<br>
-	<input type="radio" name="enquiry" value="everyone">Everyone do felt the quake<br>
-    
-        </p>
+                <br><tagname style="font-size:150%;font-family:Calibri;">6. Walls and structers knocks down ?</tagname><br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <br><input type="radio" name="q6" value="Not specified">Not specified<br>
+                        <br><input type="radio" name="q6" value="no movement">No, didnt even move<br>
+                        <br><input type="radio" name="q6" value="slight shake">Yeah, noted a slight tremble of the walls<br>
+                        <br><input type="radio" name="q6" value="yes">yeah, walls fell down<br>
+                    </tagname></ul>
+
+                <br><tagname style="font-size:150%;font-family:Calibri;">7. Enquired about the quake with anyone ? How do they respond ??</tagname><br>
+                    <ul><tagname style="font-family:Calibri;">
+                        <br><input type="radio" name="q7" value="no one">No one felt ! itseems<br>
+                        <br><input type="radio" name="q7" value="few">Almost none, but few felt the quake<br>
+                        <br><input type="radio" name="q7" value="everyone">Everyone do felt the quake<br>
+                    </tagname></ul>
+
+        
 <p style="text-align:center;font-family:Calibri;">
 	<br> Click submit to submit your responses<br>
 	<br><input type="submit" value="Submit"><br>
