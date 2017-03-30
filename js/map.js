@@ -63,7 +63,7 @@ function loadEqEvent(url) {
 }
 
 function loadPoint(response) {
-  var iW, clicked=false, ;
+  var iW, clicked=false;
   map.data.forEach(function (f) {
     map.data.remove(f);
   });
