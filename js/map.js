@@ -66,14 +66,20 @@ function loadPoint(response) {
   var iW;
   map.data.forEach(function (f) {
     map.data.remove(f);
-  });
-  map.data.addGeoJson(response);
+      });
+      map.data.addGeoJson(response);
+  var mag = response.properties.mag;
+          var circle = new google.maps.Circle({
+            map: map,
+            center: {lat: response.geometry.coordinates[1],lng: response.geometry.coordinates[0]},
+            radius: response.properties.mag * 30000
+          });
+} 
+        
   map.data.addListener("mouseover",function (event) {
-    var mag = event.feature.getProperty("mag").toString();
-    iW = new google.maps.InfoWindow({content: mag, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
+    iW = new google.maps.InfoWindow({content: mag.toString() , maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
     iW.open(map);
-  });
+  });         
   map.data.addListener("mouseout",function (event) {
     iW.close();
-  })
-}
+  });
