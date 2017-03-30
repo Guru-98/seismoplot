@@ -63,17 +63,21 @@ function loadEqEvent(url) {
 }
 
 function loadPoint(response) {
-  var iW;
+  var iW, clicked=false, ;
   map.data.forEach(function (f) {
     map.data.remove(f);
   });
   map.data.addGeoJson(response);
   map.data.addListener("mouseover",function (event) {
     var mag = event.feature.getProperty("mag").toString();
-    iW = new google.maps.InfoWindow({content: mag, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
+    iW = new google.maps.InfoWindow({content: "<li>Magnitude: "+mag+"</li><li>Url: <a href=\""+event.feature.getProperty("url").toString()+"\">Details</li>", maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
     iW.open(map);
   });
+  map.data.addListener("click",function (event) {
+    clicked = true;
+  })
   map.data.addListener("mouseout",function (event) {
-    iW.close();
+    if(!clicked)
+      iW.close();
   })
 }
