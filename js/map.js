@@ -77,9 +77,6 @@ function loadPoint(response) {
   });
   map.data.addGeoJson(response);
   var mag = response.properties.mag;
-  map.data.addListener("mouseout", function (event) {
-    iW.close();
-  });
   map.data.addListener("mouseover",function (event) {
     var place = event.feature.getProperty("place").toString();
     var time = event.feature.getProperty("time").toString();
