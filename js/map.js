@@ -1,9 +1,8 @@
 var map;
 var bounds;
 var circle;
-function initMap() {
+function popMap() {
   var mapStyle = [{
-<<<<<<< HEAD
         'featureType': 'all',
         'elementType': 'all',
         'stylers': [{'visibility': 'off'}]
@@ -24,30 +23,9 @@ function initMap() {
         'elementType': 'geometry',
         'stylers': [{'visibility': 'on'}, {'color': '#a0a0a0'} ]
       }];
-  var options = {center: {lat: 20.5937, lng: 78.9629}, zoom: 4, disableDefaultUI: true, zoomControl: true, styles         : mapStyle};
-=======
-    'featureType': 'all',
-    'elementType': 'all',
-    'stylers': [{ 'visibility': 'off' }]
-  }, {
-    'featureType': 'landscape',
-    'elementType': 'geometry',
-    'stylers': [{ 'visibility': 'on' }, { 'color': '#fcfcfc' }]
-  }, {
-    'featureType': 'water',
-    'elementType': 'labels',
-    'stylers': [{ 'visibility': 'off' }]
-  }, {
-    'featureType': 'water',
-    'elementType': 'geometry',
-    'stylers': [{ 'visibility': 'on' }, { 'hue': '#5f94ff' }, { 'lightness': 60 }]
-  }, {
-    'featureType': 'administrative.country',
-    'elementType': 'geometry',
-    'stylers': [{ 'visibility': 'on' }, { 'color': '#a0a0a0' }]
-  }];
+  var options = {center: {lat: 20.5937, lng: 78.9629}, zoom: 4, disableDefaultUI: true, zoomControl: true, styles: mapStyle};
+    
   var options = { center: { lat: 20.5937, lng: 78.9629 }, zoom: 4, disableDefaultUI: true, zoomControl: true, styles: mapStyle };
->>>>>>> 5f228501f0b94fd53e066da6e76099ae26017b97
   map = new google.maps.Map(document.getElementById('map'), options);
 
   bounds = new google.maps.LatLngBounds(new google.maps.LatLng(6, 65), new google.maps.LatLng(35.956, 97.35));
@@ -87,12 +65,7 @@ function loadEqEvent(url) {
 }
 
 function loadPoint(response) {
-<<<<<<< HEAD
-  var iW;
-=======
-
   var iW, clicked=false;
->>>>>>> 5f228501f0b94fd53e066da6e76099ae26017b97
   map.data.forEach(function (f) {
     map.data.remove(f);
     circle.setMap(null);
@@ -121,8 +94,7 @@ function loadPoint(response) {
     iW.open(map);
     
   });
-<<<<<<< HEAD
-=======
+
   map.data.addListener("click",function (event) {
     clicked = true;
   });
@@ -130,5 +102,4 @@ function loadPoint(response) {
     if(!clicked)
       iW.close();
   });
->>>>>>> 5f228501f0b94fd53e066da6e76099ae26017b97
 }
