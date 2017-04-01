@@ -69,11 +69,13 @@ function loadPoint(response) {
   });
   map.data.addGeoJson(response);
   map.data.addListener("mouseover",function (event) {
+    var place = event.feature.getProperty("place").toString();
+    var time = event.feature.getProperty("time").toString();
+    var url = event.feature.getProperty("url").toString();
     var mag = event.feature.getProperty("mag").toString();
-    iW = new google.maps.InfoWindow({content: mag, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
+    var info = "<b>Place: " + place + "</b><i>Time: " + time + "</i><li>url: " + url + "</li><li>Mag: " + mag + "</li>"  ;
+    iW = new google.maps.InfoWindow({content: info, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
     iW.open(map);
+    
   });
-  map.data.addListener("mouseout",function (event) {
-    iW.close();
-  })
 }
