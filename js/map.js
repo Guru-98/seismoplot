@@ -2,7 +2,7 @@ var map;
 var bounds;
 var circle;
 var grad = ["rgb(255, 255, 255)", "rgb(191, 204, 255)", "rgb(160, 230, 255)", "rgb(128, 255, 255)", "rgb(122, 255, 147)", "rgb(255,255,0)", "rgb(255, 200, 0)", "rgb(255, 200, 0)", "rgb(255, 145, 0)", "rgb(255, 0, 0)", "rgb(255, 145, 0)", "rgb(255, 0, 0)", "rgb(200, 0, 0)", "rgb(128, 0, 0)"];
-var mC = [];
+var mC = [], cMMI=[];
 
 function popMap() {
   var mapStyle = [{
@@ -114,8 +114,10 @@ function conCircle(center, MMI, rad) {
   var iW;
   for (var h in mC) {
     mC[h].setMap(null);
+    google.maps.event.clearListeners(mC[h], 'mouseover');
+    google.maps.event.clearListeners(mC[h], 'mouseout');
   }
-
+  mC=[];
   for (var k in rad) {
     mC.push(new google.maps.Circle({
       center: center,
@@ -130,7 +132,7 @@ function conCircle(center, MMI, rad) {
 
     google.maps.event.addListener(mC[k], "mouseover", function (e) {
       iW = new google.maps.InfoWindow({
-        content: "MMI: " + (grad.findIndex(x => x === mC.fillColor) + 1),
+        content: "MMI: " + (grad.findIndex(x => x === this.fillColor) + 1),
         maxWidth: 300,
         position: e.latLng
       });
