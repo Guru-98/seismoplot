@@ -2,6 +2,7 @@ var map;
 var bounds;
 var circle;
 var grad = ["rgb(255, 255, 255)", "rgb(191, 204, 255)", "rgb(160, 230, 255)", "rgb(128, 255, 255)", "rgb(122, 255, 147)", "rgb(255,255,0)", "rgb(255, 200, 0)", "rgb(255, 200, 0)", "rgb(255, 145, 0)", "rgb(255, 0, 0)", "rgb(255, 145, 0)", "rgb(255, 0, 0)", "rgb(200, 0, 0)", "rgb(128, 0, 0)"];
+var mC =[];
 
 function popMap() {
   var mapStyle = [{
@@ -33,6 +34,7 @@ function popMap() {
   google.maps.event.addListener(map, 'dragend', restrict);
   google.maps.event.addListener(map, 'drag', restrict);
   google.maps.event.addListener(map, 'resize', restrict);
+  google.maps.event.addListener(map, 'zoom_changed', zoom_restrict);
   var legend = document.getElementById('mmiScale');
   // legend = legend.appendChild(document.createElement('div'));
   // var tr= document.createElement('tr');
@@ -44,6 +46,11 @@ function popMap() {
   //   legend.appendChild(div);
   // }
   map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(legend);
+}
+
+function zoom_restrict() {
+  if(map.getZoom >= 3) return;
+  map.setZoom(3);
 }
 
 //TODO redefine restriction
@@ -107,9 +114,12 @@ function loadPoint(response) {
 }
 
 function conCircle(center, MMI, rad) {
-  var mC, iW;
+  var iW;
+  for (var k in mC){
+    mC[k].setMap(null);
+  }
   for (var k in rad) {
-    mC = new google.maps.Circle({
+    mC.push(new google.maps.Circle({
       center: center,
       fillColor: grad[MMI[k] - 1],
       fillOpacity: 0.5,
@@ -117,7 +127,7 @@ function conCircle(center, MMI, rad) {
       radius: rad[k] * 1000,
       map: map,
       zIndex: rad.length - k
-    });
+    }));
     //   google.maps.event.addListener(mC, "mouseover", info);
     //   google.maps.event.addListener(mC, "mouseout", function (e) {
     //     iW.close();
@@ -131,6 +141,8 @@ function conCircle(center, MMI, rad) {
     //     iW.open(map);
     //   }
     // }
+    map.panTo(center);
+    //map.fitBounds(mC[mC.length -1].getBounds());
   }
 }
 
@@ -141,7 +153,7 @@ function plotIso(response) {
   var center= { lat: response.geometry.coordinates[1], lng: response.geometry.coordinates[0] };
   var mag1 = response.properties.mag; 
   var focal = parseFloat(response.properties.products.origin[0].properties.depth);
-  var ei = 1.5 * mag1 - 3.5 * Math.log10(focal) + 3; 
+  var ei = Math.round(1.5 * mag1 - 3.5 * Math.log10(focal) + 3); 
   for (var r = 5; r <= 100; r = r + 5) { 
     var i = ei - (3.6) * Math.log10(Math.sqrt(1 + (r / focal) ^ 2));
     rad.push(r);
