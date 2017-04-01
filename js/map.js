@@ -23,7 +23,7 @@ function initMap() {
         'elementType': 'geometry',
         'stylers': [{'visibility': 'on'}, {'color': '#a0a0a0'} ]
       }];
-  var options = {center: {lat: 20.5937, lng: 78.9629}, zoom: 4, disableDefaultUI: true, zoomControl: true, styles: mapStyle};
+  var options = {center: {lat: 20.5937, lng: 78.9629}, zoom: 4, disableDefaultUI: true, zoomControl: true, styles         : mapStyle};
   map = new google.maps.Map(document.getElementById('map'), options);
 
   bounds = new google.maps.LatLngBounds(new google.maps.LatLng(6, 65), new google.maps.LatLng(35.956, 97.35));
@@ -73,7 +73,7 @@ function loadPoint(response) {
     var time = event.feature.getProperty("time").toString();
     var url = event.feature.getProperty("url").toString();
     var mag = event.feature.getProperty("mag").toString();
-    var info = "<b>Place: " + place + "</b><i>Time: " + time + "</i><li>url: " + url + "</li><li>Mag: " + mag + "</li>"  ;
+    var info = "<b>Place: " + place + "</b><li>Time: " + time + "</li><li>url: " + url + "</li><li>Mag: " + mag + "</li>"  ;
     iW = new google.maps.InfoWindow({content: info, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
     iW.open(map);
     
