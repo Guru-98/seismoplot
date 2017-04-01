@@ -141,7 +141,7 @@ function conCircle(center, MMI, rad) {
     });
   }
   map.panTo(center);
-  map.fitBounds(mC[mC.length - 1].getBounds());
+  //map.fitBounds(mC[mC.length - 1].getBounds());
 }
 
 function plotIso(response) {
