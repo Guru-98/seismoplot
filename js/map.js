@@ -63,12 +63,8 @@ function loadEqEvent(url) {
 }
 
 function loadPoint(response) {
-<<<<<<< HEAD
-  var iW;
 
-=======
-  var iW, clicked=false, ;
->>>>>>> 7eea43fc10adce2dd42d6918fdc5733d75f866bf
+  var iW, clicked=false;
   map.data.forEach(function (f) {
     map.data.remove(f);
     circle.setMap(null);
@@ -79,7 +75,6 @@ function loadPoint(response) {
     radius: response.properties.mag * 30000
   });
   map.data.addGeoJson(response);
-<<<<<<< HEAD
   var mag = response.properties.mag;
   map.data.addListener("mouseover", function (event) {
     iW = new google.maps.InfoWindow({ content: mag.toString(), maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0, -25) });
@@ -88,7 +83,6 @@ function loadPoint(response) {
   map.data.addListener("mouseout", function (event) {
     iW.close();
   });
-=======
   map.data.addListener("mouseover",function (event) {
     var mag = event.feature.getProperty("mag").toString();
     iW = new google.maps.InfoWindow({content: "<li>Magnitude: "+mag+"</li><li>Url: <a href=\""+event.feature.getProperty("url").toString()+"\">Details</li>", maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
@@ -96,10 +90,9 @@ function loadPoint(response) {
   });
   map.data.addListener("click",function (event) {
     clicked = true;
-  })
+  });
   map.data.addListener("mouseout",function (event) {
     if(!clicked)
       iW.close();
-  })
->>>>>>> 7eea43fc10adce2dd42d6918fdc5733d75f866bf
+  });
 }
