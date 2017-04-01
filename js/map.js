@@ -150,7 +150,7 @@ function plotIso(response) {
   var mag1 = response.properties.mag;
   var focal = parseFloat(response.properties.products.origin[0].properties.depth);
   var ei = 1.5 * mag1 - 3.5 * Math.log10(focal) + 3;
-  for (var r = 5; r <= 50; r = r + 5) {
+  for (var r = 5; r <= 500; r = r + 50) {
     var i = ei - (3.6) * Math.log10(Math.sqrt(1 + ((r / focal) ^ 2)));
     rad.push(r);
     MMI.push(Math.round(i));
