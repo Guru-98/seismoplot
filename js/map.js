@@ -77,10 +77,6 @@ function loadPoint(response) {
   });
   map.data.addGeoJson(response);
   var mag = response.properties.mag;
-  map.data.addListener("mouseover", function (event) {
-    iW = new google.maps.InfoWindow({ content: mag.toString(), maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0, -25) });
-    iW.open(map);
-  });
   map.data.addListener("mouseout", function (event) {
     iW.close();
   });
@@ -92,9 +88,7 @@ function loadPoint(response) {
     var info = "<b>Place: " + place + "</b><li>Time: " + time + "</li><li>url: " + url + "</li><li>Mag: " + mag + "</li>"  ;
     iW = new google.maps.InfoWindow({content: info, maxWidth: 300, position: event.latLng, pixelOffset: new google.maps.Size(0,-25)});
     iW.open(map);
-    
   });
-
   map.data.addListener("click",function (event) {
     clicked = true;
   });
