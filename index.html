@@ -31,20 +31,18 @@
           <li><a href="#">Earthquakes in India</a></li>
           <li><a href="dyfi.html">DYFI!</a></li>
           <li><a href="#">Data Sets</a></li>
+          <li class='pull-right'><a href='#'>About</a></li> 
         </ul>
       </div>
     </div>
-  </nav>
-  <div class="container-fluid">
-    <div class="search-bar">Filter bar</div>
-  </div>
+  </nav>  
   <div class="container-fluid" style="height: 100%">
     <div class="row-fluid" style="height: 100%">
       <div id="map" class="col-md-9"></div>
       <div id="recent-eq" class="sidebar col-md-3"></div>
     </div>
   </div>
-  <table id='mmiScale'>
+  <table id='mmiScale' style="align-items: center">
 	<tbody>
 		<tr>
 			<td style="background-color:#fff;">I</td>
@@ -68,19 +66,31 @@
 			<td style="background-color:#fdca2c;">VII</td>
 		</tr>
 		<tr>
-			<td style="background-color:#ff701f;">VIII</td>
+			<td style="background-color:#ff701f;color: white">VIII</td>
 		</tr>
 		<tr>
-			<td style="background-color:#ec2516;">IX</td>
+			<td style="background-color:#ec2516;color: white">IX</td>
 		</tr>
 		<tr>
-			<td style="background-color:#c81e11;">X</td>
+			<td style="background-color:#c81e11;color: white">X</td>
 		</tr>
+    <tr>
+      <td style="background-color:#800;color: white">XI</td>
+    </tr>
+    <tr>
+      <td style="background-color:#400;color: white">XI</td>
+    </tr>
+    <tr>
+      <td style="text-align:justify">MMI Scale</td>
+    </tr>
 	</tbody>
-</table>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA1dpX2riHQBn-gyHA0_jp8grrej8zjZI&callback=popMap&libraries=visualization" async
+  </table>
+  <div ></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA1dpX2riHQBn-gyHA0_jp8grrej8zjZI&callback=popMap&libraries=drawing" async
     defer></script>
-  <script src="https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2017-03-01%2000:00:00&endtime=2017-03-07%2023:59:59&maxlatitude=39.419&minlatitude=0.066&maxlongitude=99.141&minlongitude=57.656&callback=recentEq&orderby=time"
+  <!--<script src="https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2017-03-01%2000:00:00&endtime=2017-03-07%2023:59:59&maxlatitude=39.419&minlatitude=0.066&maxlongitude=99.141&minlongitude=57.656&callback=recentEq&orderby=time"
+    async defer></script>-->
+    <script src="https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2016-03-25%2000:00:00&endtime=2017-04-01%2023:59:59&maxlatitude=40&minlatitude=-0.05&maxlongitude=99.5&minlongitude=57.5&minmagnitude=5&limit=10&callback=recentEq&orderby=time"
     async defer></script>
 </body>
 
