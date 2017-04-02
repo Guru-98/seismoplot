@@ -160,14 +160,13 @@ function plotIso(response) {
 }
 
 function dyfi() {
-  
-  uPos = getLoc();
+  getLoc();
   openNav();
 }
 
 function getLoc() {
   if(navigator.geolocation.getCurrentPosition(function (p) {
-    return {lat: p.coords.latitude,lng: p.coords.longitude};
+    uPos = {lat: p.coords.latitude,lng: p.coords.longitude};
   }));
 }
 
