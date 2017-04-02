@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <script src="js/map.js"></script>
 </head>
 
@@ -160,6 +161,9 @@
     </div>
   </div>
 </div>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA1dpX2riHQBn-gyHA0_jp8grrej8zjZI&callback=popMap&libraries=drawing" async
     defer></script>
     <script src="https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2016-03-25%2000:00:00&endtime=2017-04-01%2023:59:59&maxlatitude=40&minlatitude=-0.05&maxlongitude=99.5&minlongitude=57.5&minmagnitude=5&limit=10&callback=recentEq&orderby=time"

@@ -179,7 +179,28 @@ function closeNav() {
 }
 
 function intense(val) {
-  var mark = new google.maps.Marker({ position: uPos, map: map, label: val.toString()});
+  var mark = new google.maps.Circle({ center: uPos, map: map, radius: val*1000, strokeWeight: 0, fillColor: grad[val]});
+   google.maps.event.addListener(mark, "mouseover", function (e) {
+      iW = new google.maps.InfoWindow({
+        content: "MMI: " + (grad.findIndex(x => x === this.fillColor) + 1),
+        maxWidth: 300,
+        position: e.latLng
+      });
+      iW.open(map);
+    });
+    google.maps.event.addListener(mark, "mouseout", function (e) {
+      iW.close();
+    });
   uPos =null;
   closeNav();
+}
+
+function initChart() {
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    datasets: {
+      data
+    }
+  });
 }
