@@ -184,6 +184,7 @@ function closeNav() {
 }
 
 function intense(val) {
+  var marker = new google.maps.Marker({ position: uPos, map: map, label: val.toString()});
   var mark = new google.maps.Circle({ center: uPos, map: map, radius: val*1000, strokeWeight: 0, fillColor: grad[val]});
    google.maps.event.addListener(mark, "mouseover", function (e) {
       iW = new google.maps.InfoWindow({
