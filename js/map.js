@@ -26,7 +26,27 @@ function popMap() {
     'featureType': 'administrative.country',
     'elementType': 'geometry',
     'stylers': [{ 'visibility': 'on' }, { 'color': '#a0a0a0' }]
-  }];
+  }, {
+    'featureType': 'administrative.province',
+    'elementType': 'geometry',
+    'stylers': [{ 'visibility': 'on' }, { 'color': '#a0a0a0' }]
+  }, {
+    'featureType': 'administrative.country',
+    'elementType': 'labels',
+    'stylers': [{ 'visibility': 'on' }]
+  }, {
+    'featureType': 'administrative.province',
+    'elementType': 'labels',
+    'stylers': [{ 'visibility': 'on' }]
+  }, {
+    'featureType': 'administrative.locality',
+    'elementType': 'labels',
+    'stylers': [{ 'visibility': 'simplified' }]
+  }, {
+    'featureType': 'administrative.locality',
+    'elementType': 'geometry',
+    'stylers': [{ 'visibility': 'simplified' }]
+  },];
   var options = { center: { lat: 20.5937, lng: 78.9629 }, zoom: 4, disableDefaultUI: true, zoomControl: true, styles: mapStyle };
   map = new google.maps.Map(document.getElementById('map'), options);
   bounds = new google.maps.LatLngBounds(new google.maps.LatLng(6, 65), new google.maps.LatLng(35.956, 97.35));
@@ -39,10 +59,12 @@ function popMap() {
   var legend = document.getElementById('mmiScale');
   map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(legend);
   
-  var chart1 = document.getElementById('CI');
-  var chart2 = document.getElementById('CII');
-  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(chart1);
-  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(chart2);
+  // var chart1 = document.getElementById('CI');
+  // var chart2 = document.getElementById('CII');
+  // map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(chart1);
+  // map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(chart2);
+
+  // initChart();
 }
 
 //TODO redefine restriction
@@ -134,16 +156,17 @@ function conCircle(center, MMI, rad) {
     }));
 
     google.maps.event.addListener(mC[k], "mouseover", function (e) {
+      var content = "Radius: "+ this.getRadius() +" km<br>MMI: " + (grad.findIndex(x => x === this.fillColor) + 1)+"<br>";
       iW = new google.maps.InfoWindow({
-        content: "MMI: " + (grad.findIndex(x => x === this.fillColor) + 1),
+        content: content,
         maxWidth: 300,
         position: e.latLng
       });
       iW.open(map);
     });
-    google.maps.event.addListener(mC[k], "mouseout", function (e) {
+    google.maps.event.addListener(mC[k],"mouseout", function (e) {
       iW.close();
-    });
+    })
   }
   map.panTo(center);
   //map.fitBounds(mC[mC.length - 1].getBounds());
@@ -160,7 +183,7 @@ function plotIso(response) {
     rad.push(r);
     MMI.push(Math.round(i));
   }
-
+  
   conCircle(center, MMI, rad);
 }
 
@@ -197,6 +220,89 @@ function intense(val) {
     google.maps.event.addListener(mark, "mouseout", function (e) {
       iW.close();
     });
+    
   uPos =null;
   closeNav();
+}
+
+// function initChart() {
+//   var scatterChart = new Chart(document.getElementById('Chart'), {
+//     type: 'line',
+//     data: {
+//         datasets: [{
+//           label: "Intensity from PGV",
+//             data: [{
+//                 x: 0.9,
+//                 y: 2.19
+//             }, {
+//                 x: 1.2,
+//                 y: 2.62
+//             }, {
+//                 x: 3.2,
+//                 y: 4.10
+//             }, {
+//                 x: 4,
+//                 y: 4.43
+//             }, {
+//                 x: 5.4,
+//                 y: 4.8
+//             }, {
+//                 x: 8,
+//                 y: 5.2
+//             }, {
+//                 x: 10,
+//                 y: 5.4
+//             }, {
+//                 x: 12,
+//                 y: 5.8
+//             }, {
+//                 x: 14,
+//                 y: 6.3
+//             }, {
+//                 x: 15.5,
+//                 y: 6.4
+//             }, {
+//                 x: 30,
+//                 y: 7.4
+//             }, {
+//                 x: 40,
+//                 y: 7.9
+//             }, {
+//                 x: 55,
+//                 y: 8.3
+//             }, {
+//                 x: 84,
+//                 y: 9.0
+//             }, {
+//                 x: 100,
+//                 y: 9.29
+//             }, {
+//                 x: 116,
+//                 y: 9.5
+//             }, {
+//                 x: 130,
+//                 y: 9.6
+//             }, ]
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             xAxes: [{
+//                 type: 'linear',
+//                 position: 'bottom',
+//                 label: 'PGV'
+//             }],
+//             yAxes: [{
+//                 type: 'linear',
+//                 position: 'left',
+//                 label: 'Intensity'
+//             }]
+//         }
+//     }
+// });
+
+// }
+
+function name(params) {
+
 }
