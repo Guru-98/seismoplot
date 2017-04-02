@@ -38,6 +38,11 @@ function popMap() {
 
   var legend = document.getElementById('mmiScale');
   map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(legend);
+  
+  var chart1 = document.getElementById('CI');
+  var chart2 = document.getElementById('CII');
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(chart1);
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(chart2);
 }
 
 //TODO redefine restriction
@@ -193,14 +198,4 @@ function intense(val) {
     });
   uPos =null;
   closeNav();
-}
-
-function initChart() {
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    datasets: {
-      data
-    }
-  });
 }
