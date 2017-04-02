@@ -3,6 +3,7 @@ var bounds;
 var circle;
 var grad = ["rgb(255, 255, 255)", "rgb(191, 204, 255)", "rgb(160, 230, 255)", "rgb(128, 255, 255)", "rgb(122, 255, 147)", "rgb(255,255,0)", "rgb(255, 200, 0)", "rgb(255, 200, 0)", "rgb(255, 145, 0)", "rgb(255, 0, 0)", "rgb(255, 145, 0)", "rgb(255, 0, 0)", "rgb(200, 0, 0)", "rgb(128, 0, 0)"];
 var mC = [], cMMI=[];
+var uPos;
 
 function popMap() {
   var mapStyle = [{
@@ -37,20 +38,11 @@ function popMap() {
 
   var legend = document.getElementById('mmiScale');
   map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(legend);
-
-  // var script = document.createElement('script');
-  // script.src = 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime='+new Date() +'&callback=plotIso';
-  // document.body.appendChild(script);
-}
-
-function zoom_restrict() {
-  if (map.getZoom >= 3) return;
-  map.setZoom(3);
 }
 
 //TODO redefine restriction
 function restrict() {
-  if (bounds.equals(map.getBounds())) return;
+  if (bounds.equals(map.getBounds())){ ;return};
   map.fitBounds(bounds);
 }
 
@@ -66,7 +58,13 @@ function recentEq(response) {
       eqEvent.className += "list-group-item list-group-item-action";
       eqEvent.setAttribute("onclick", "loadEqEvent(\"" + response.features[i].properties.detail + "\")");
       var title = document.createTextNode(response.features[i].properties.title);
+      var dyfi = document.createElement('a');
+      dyfi.className += "dyfiLink";
+      dyfi.appendChild(document.createTextNode('DYFI?'));
+      dyfi.setAttribute("onclick", "dyfi()");
       eqEvent.appendChild(title);
+      eqEvent.appendChild(document.createElement('br'));
+      eqEvent.appendChild(dyfi);
       eq.appendChild(eqEvent);
       rEqList.appendChild(eq);
     }
@@ -159,4 +157,30 @@ function plotIso(response) {
   }
 
   conCircle(center, MMI, rad);
+}
+
+function dyfi() {
+  for(;uPos == null;){
+  uPos = getLoc();}
+  openNav();
+}
+
+function getLoc() {
+  if(navigator.geolocation.getCurrentPosition(function (p) {
+    return {lat: p.coords.latitude,lng: p.coords.longitude};
+  }));
+}
+
+function openNav() {
+    document.getElementById("dyfi").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("dyfi").style.width = "0%";
+}
+
+function intense(val) {
+  var mark = new google.maps.Marker({ position: uPos, map: map, label: val.toString() });
+  uPos =null;
+  closeNav();
 }

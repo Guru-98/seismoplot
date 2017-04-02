@@ -29,3 +29,82 @@ html, body {
     padding-left: 10px;
     }
 }
+
+.overlay
+{
+    height:100%;
+    width:0;
+    position: fixed;
+    z-index:1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.9); 
+    overflow-x: hidden; 
+    transition: 1s;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; 
+    transition: 0.3s; 
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {align-items: center}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+    .card {align-self: center}
+}
+
+.card {
+   width:250px; 
+   height:250px; 
+   position:relative;
+   -webkit-transform-style: preserve-3d;
+   -webkit-transform-origin: 100% 75px;
+   -webkit-transition: all 0.7s ease;
+   transform-style: preserve-3d;
+   transform-origin: 100% 75px;
+   transition: all 0.7s ease;
+}
+
+.frame:hover{
+   -webkit-transform: rotateX(-180deg);
+   transform: rotateX(-180deg);
+}
+
+.front_pos, .back_pos {
+   width:250px; 
+   height:250px; 
+   position:absolute; 
+   left:0; 
+   -webkit-backface-visibility:hidden;
+   backface-visibility:hidden;
+}
+
+.back_pos {
+   position:absolute;
+   bottom:170px;
+   font-size:30px;
+   color:crimson;
+   -webkit-transform: rotateX(180deg);
+   transform: rotateX(180deg);
+   text-align:center;
+}
+
+.dyfiLink{
+    font-size: 8pt;
+    text-align: right;
+}

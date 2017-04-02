@@ -85,7 +85,83 @@
     </tr>
 	</tbody>
   </table>
-  <div ></div>
+  <div class="overlay" id='dyfi'>
+  <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <div class="overlay-content">
+    <div class="container">
+      <div class="col-sm-4">
+        <div class="card frame">
+          <input type="image" src="images/I.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(1)">
+          <p class="back_pos"><a href="javascript:intense(1);">I</a></p>
+        </div>
+        <div class="card frame"><input type="image" src="images/IV.PNG" class="img-circle front_pos"
+            name="intensity" onclick="intense(4)">
+          <p class="back_pos"><a href="javascript:intense(4);">IV</a></p>
+        </div>
+        <div class="card frame"><input type="image" src="images/VII.PNG" class="img-circle front_pos"
+            name="intensity" onclick="intense(7)">
+          <p class="back_pos">VII</p>
+        </div>
+        <div class="card frame"><input type="image" src="images/X.PNG" class="img-circle front_pos"
+            name="intensity" onclick="intense(10)">
+          <p class="back_pos">X</p>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4">
+        <div class="card frame">
+          <input type="image" src="images/II.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(2)">
+          <p class="back_pos">II</p>
+        </div>
+        <div class="card frame">
+          <input type="image" src="images/V.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(5)">
+          <p class="back_pos">V</p>
+        </div>
+        <div class="card frame">
+          <input type="image" src="images/VIII.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(8)">
+          <p class="back_pos">VIII</p>
+        </div>
+        <div class="card frame">
+          <input type="image" src="images/XI.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(11)">
+          <p class="back_pos">XI</p>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4">
+        <div class="card frame">
+          <input type="image" src="images/III.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(3)">
+          <p class="back_pos">III</p>
+        </div>
+        <div class="card frame">
+          <input type="image" src="images/VI.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(6)">
+          <p class="back_pos">VI</p>
+        </div>
+        <div class="card frame">
+          <input type="image" src="images/IX.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(9)">
+          <p class="back_pos">IX</p>
+        </div>
+        <div class="card frame">
+          <input type="image" src="images/XII.PNG" class="img-circle front_pos" name="intensity"
+            onclick="intense(12)">
+          <p class="back_pos">XII</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA1dpX2riHQBn-gyHA0_jp8grrej8zjZI&callback=popMap&libraries=drawing" async
     defer></script>
   <!--<script src="https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2017-03-01%2000:00:00&endtime=2017-03-07%2023:59:59&maxlatitude=39.419&minlatitude=0.066&maxlongitude=99.141&minlongitude=57.656&callback=recentEq&orderby=time"
