@@ -188,7 +188,7 @@ function intense(val) {
   var mark = new google.maps.Circle({ center: uPos, map: map, radius: val*1000, strokeWeight: 0, fillColor: grad[val]});
    google.maps.event.addListener(mark, "mouseover", function (e) {
       iW = new google.maps.InfoWindow({
-        content: "MMI: " + (grad.findIndex(x => x === this.fillColor) + 1),
+        content: "MMI: " + (grad.findIndex(x => x === this.fillColor)),
         maxWidth: 300,
         position: e.latLng
       });
