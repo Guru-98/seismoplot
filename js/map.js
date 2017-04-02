@@ -61,7 +61,7 @@ function recentEq(response) {
       var dyfi = document.createElement('a');
       dyfi.className += "dyfiLink";
       dyfi.appendChild(document.createTextNode('DYFI?'));
-      dyfi.setAttribute("onclick", "dyfi()");
+      dyfi.setAttribute("herf", "javascript:dyfi();");
       eqEvent.appendChild(title);
       eqEvent.appendChild(document.createElement('br'));
       eqEvent.appendChild(dyfi);
@@ -179,7 +179,7 @@ function closeNav() {
 }
 
 function intense(val) {
-  var mark = new google.maps.Marker({ position: uPos, map: map, label: val.toString() });
+  var mark = new google.maps.Marker({ position: uPos, map: map, label: val.toString()});
   uPos =null;
   closeNav();
 }
