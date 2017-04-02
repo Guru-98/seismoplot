@@ -179,7 +179,7 @@ function closeNav() {
 }
 
 function intense(val) {
-  var mark = new google.maps.Marker({ position: uPos, map: map, label: val.toString() });
+  var mark = new google.maps.Marker({ position: uPos, map: map, label: val.toString()});
   uPos =null;
   closeNav();
 }
