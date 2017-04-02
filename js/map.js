@@ -160,8 +160,8 @@ function plotIso(response) {
 }
 
 function dyfi() {
-  for(;uPos == null;){
-  uPos = getLoc();}
+  
+  uPos = getLoc();
   openNav();
 }
 
